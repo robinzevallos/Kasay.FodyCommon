@@ -4,7 +4,7 @@
     using System;
     using System.Linq;
 
-    internal class AssemblyFactory
+    public class AssemblyFactory
     {
         readonly ModuleDefinition moduleDefinition;
 
