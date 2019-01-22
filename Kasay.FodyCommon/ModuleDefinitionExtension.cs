@@ -32,5 +32,23 @@
 
             return reference;
         }
+
+        public static Boolean InheritFrom(this TypeReference type, String ancestor)
+        {
+            while (type != null)
+            {
+                if (type.FullName == ancestor)
+                    return true;
+
+                type = type.Resolve().BaseType;
+            }
+
+            return false;
+        }
+
+        public static Boolean ExistAttribute(this ICustomAttributeProvider obj, String name)
+        {
+            return obj.CustomAttributes.Any(_ => _.AttributeType.Name == name);
+        }
     }
 }
